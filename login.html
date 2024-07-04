@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - BlogDeCafe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="contenedor">
+      <div class="barra">
+        <a href="index.html">
+          <h1 class="no-margin">BlogDeCafe</h1>
+        </a>
+        <nav class="navegacion">
+          <a href="login.html">Login</a>
+          <a href="nosotros.html">Nosotros</a>
+          <a href="cursos.html">Cursos</a>
+          <a href="contacto.html">Contacto</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <h2 class="centrar-texto">Iniciar Sesión</h2>
+    <form action="#" class="formulario" id="login-form">
+      <fieldset>
+        <legend>Ingresar con tu usuario</legend>
+
+        <div class="campo">
+          <label for="usuario">Usuario</label>
+          <input type="text" id="usuario" placeholder="Tu Usuario" required pattern="^[a-zA-Z0-9_]{3,15}$" title="El usuario debe tener entre 3 y 15 caracteres alfanuméricos">
+        </div>
+
+        <div class="campo">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" placeholder="Tu Contraseña" required minlength="6" title="La contraseña debe tener al menos 6 caracteres">
+        </div>
+
+        <div class="alinear-derecha">
+          <input type="submit" class="boton boton-primario" value="Iniciar Sesión">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>O ingresa con</legend>
+        <div class="centrar-texto">
+          <a href="https://accounts.google.com/signin/v2/identifier" class="boton-google">
+            <img src="img/googleicono.png" alt="Google Icon" class="icono-google">
+            Ingresar con Google
+          </a>
+
+        </div>
+      </fieldset>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="contenedor">
+      <div class="barra">
+        <a href="index.html">
+          <h1 class="no-margin">BlogDeCafe</h1>
+        </a>
+        <nav class="navegacion">
+          <a href="login.html">Login</a>
+          <a href="nosotros.html">Nosotros</a>
+          <a href="cursos.html">Cursos</a>
+          <a href="contacto.html">Contacto</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+      const usuario = document.getElementById('usuario');
+      const password = document.getElementById('password');
+
+      if (!usuario.value.match(/^[a-zA-Z0-9_]{3,15}$/)) {
+        alert('El usuario debe tener entre 3 y 15 caracteres alfanuméricos');
+        usuario.focus();
+        event.preventDefault();
+        return false;
+      }
+
+      if (password.value.length < 6) {
+        alert('La contraseña debe tener al menos 6 caracteres');
+        password.focus();
+        event.preventDefault();
+        return false;
+      }
+
+      return true;
+    });
+  </script>
+</body>
+
+</html>
